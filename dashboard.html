@@ -21,6 +21,31 @@
     <p>Cargando sitios...</p>
   </div>
 
+  <button class="edit-sites-button" id="editSitesButton" type="button" aria-label="Editar sitios" title="Editar sitios"><span aria-hidden="true">✎</span></button>
+  <button class="add-site-button" id="addSiteButton" type="button" aria-label="Agregar sitio" title="Agregar sitio"><span aria-hidden="true">+</span></button>
+
+  <dialog class="site-dialog" id="siteDialog" aria-labelledby="dialogTitle">
+    <form class="site-form" id="siteForm" method="dialog">
+      <h2 id="dialogTitle">Agregar sitio</h2>
+
+      <label for="siteName">Nombre</label>
+      <input id="siteName" name="name" type="text" placeholder="Ej. GitHub" required>
+
+      <label for="siteUrl">URL</label>
+      <input id="siteUrl" name="url" type="url" placeholder="https://ejemplo.com" required>
+
+      <label for="sitePhoto">URL de la imagen <span class="optional-field">(opcional)</span></label>
+      <input id="sitePhoto" name="photo" type="url" placeholder="https://ejemplo.com/logo.png">
+
+      <p class="dialog-error" id="dialogError" role="alert"></p>
+
+      <div class="dialog-actions">
+        <button class="dialog-button cancel-button" id="cancelSiteButton" type="button">Cancelar</button>
+        <button class="dialog-button save-button" type="submit">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
 :root {
   --bg-color: #1a1a1a;
   --card-bg: #2d2d2d;
+  --card-bg-hover: #2d2d2daa;
   --text-color: #ffffff;
-  --accent-color: #4a90e2;
+  --accent-color: #6e69a7;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   background-attachment: fixed;
   margin: 0;
@@ -16,6 +17,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+* {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 y Edge */
+  user-select: none; /* Estándar (Chrome, Firefox, Opera) */
 }
 
 .search-container {
@@ -28,10 +35,10 @@ body {
 .search-box {
   background: white;
   border-radius: 50px;
-  padding: 15px 25px;
+  padding: 5px 25px;
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .search-box input {
@@ -40,10 +47,11 @@ body {
   outline: none;
   font-size: 1.2rem;
   padding: 0 15px;
+  height: 48px;
 }
 
 .search-box .logo {
-  color: #4285F4;
+  color: var(--accent-color);
   font-weight: bold;
   font-size: 1.5rem;
   margin-right: 10px;
@@ -51,7 +59,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 30px;
   width: 100%;
   max-width: 900px;
@@ -59,33 +67,213 @@ body {
 }
 
 .card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 190px;
   background: var(--card-bg);
   border-radius: 20px;
-  padding: 20px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   color: white;
-  transition: transform 0.2s, background 0.2s;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition:
+    transform 0.4s,
+    background 0.4s,
+    border-color 0.4s;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   border: 2px solid transparent;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  background: #3d3d3d;
+  background: var(--card-bg-hover);
   border-color: var(--accent-color);
 }
 
 .card img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 15px;
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .card span {
   display: block;
   font-size: 1.1rem;
+}
+
+.edit-sites-button,
+.add-site-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 56px;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.4s,
+    background 0.4s;
+}
+
+.edit-sites-button {
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.add-site-button {
+  right: 92px;
+  bottom: 24px;
+}
+
+.edit-sites-button:hover,
+.add-site-button:hover {
+  transform: scale(1.08);
+  background: var(--accent-color);
+}
+
+.edit-sites-button:focus-visible,
+.add-site-button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.card {
+  position: relative;
+}
+
+.delete-site-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: 2px solid var(--card-bg);
+  border-radius: 50%;
+  background: #e05252;
+  color: white;
+  font-size: 1.25rem;
+  line-height: 19px;
+  cursor: pointer;
+}
+
+.delete-site-button:hover {
+  background: #c93737;
+}
+
+.site-dialog {
+  width: min(420px, calc(100% - 40px));
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.site-dialog::backdrop {
+  background: rgba(10, 8, 35, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.site-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+}
+
+.site-form h2 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.site-form label {
+  font-size: 0.95rem;
+  color: #d9d9e8;
+}
+
+.optional-field {
+  color: #aaa7c2;
+  font-size: 0.85rem;
+}
+
+.site-form input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 12px 14px;
+  border: 1px solid #55516f;
+  border-radius: 10px;
+  background: #20203d;
+  color: white;
+  font: inherit;
+}
+
+.site-form input:focus {
+  border-color: var(--accent-color);
+  outline: 2px solid rgba(74, 144, 226, 0.35);
+}
+
+.dialog-error {
+  min-height: 1.2em;
+  margin: 0;
+  color: #ff9c9c;
+  font-size: 0.9rem;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.dialog-button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background: #45435b;
+  color: white;
+}
+
+.save-button {
+  background: var(--accent-color);
+  color: white;
+}
+
+.dialog-button:hover {
+  filter: brightness(1.12);
 }
 
 @media (max-width: 600px) {

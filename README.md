@@ -7,6 +7,13 @@ Para el dashboard:
 ```bash
 python3 --version
 sudo dnf install python3
+python3 server.py
+```
+
+Después abre `http://localhost:8000/dashboard.html`. El servidor personalizado permite que el formulario de agregar sitios guarde los nuevos elementos directamente en `sites.json`.
+
+Para instalarlo como servicio:
+```bash
 sudo nano /etc/systemd/system/minimal-dashboard.service
 ```
 ```bash
@@ -18,7 +25,7 @@ After=network.target
 Type=simple
 User=tu_usuario
 WorkingDirectory=/opt/minimal-dashboard
-ExecStart=/usr/bin/python3 -m http.server 8000
+ExecStart=/usr/bin/python3 /opt/minimal-dashboard/server.py
 Restart=always
 RestartSec=5
 
