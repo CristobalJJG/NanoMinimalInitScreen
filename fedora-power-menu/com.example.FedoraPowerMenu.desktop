@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Menú de sesión
+Comment=Apagar, reiniciar o cerrar sesión
+Exec=fedora-power-menu
+Icon=system-shutdown-symbolic
+Terminal=false
+Type=Application
+Categories=System;Utility;
+StartupNotify=true

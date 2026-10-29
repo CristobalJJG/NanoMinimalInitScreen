@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.example.FedoraPowerMenu</id>
+  <name>Menú de sesión</name>
+  <summary>Acciones de energía y sesión para Fedora</summary>
+  <description>
+    <p>Una ventana sencilla para apagar, reiniciar o cerrar la sesión actual.</p>
+  </description>
+  <launchable type="desktop-id">com.example.FedoraPowerMenu.desktop</launchable>
+  <provides><binary>fedora-power-menu</binary></provides>
+  <content_rating type="oars-1.1"/>
+  <releases><release version="0.1.0" date="2026-01-01"/></releases>
+</component>
