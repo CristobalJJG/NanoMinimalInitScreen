@@ -1,0 +1,42 @@
+[
+  {
+    "name": "YouTube",
+    "url": "https://www.youtube.com",
+    "photo": "https://www.google.com/s2/favicons?domain=youtube.com"
+  },
+  {
+    "name": "Netflix",
+    "url": "https://www.netflix.com",
+    "photo": "https://www.google.com/s2/favicons?domain=netflix.com"
+  },
+  {
+    "name": "Amazon",
+    "url": "https://www.amazon.es",
+    "photo": "https://www.google.com/s2/favicons?domain=amazon.es"
+  },
+  {
+    "name": "Google",
+    "url": "https://www.google.com",
+    "photo": "https://www.google.com/s2/favicons?domain=google.com"
+  },
+  {
+    "name": "Facebook",
+    "url": "https://www.facebook.com",
+    "photo": "https://www.google.com/s2/favicons?domain=facebook.com"
+  },
+  {
+    "name": "Gmail",
+    "url": "https://mail.google.com",
+    "photo": "https://www.google.com/s2/favicons?domain=gmail.com"
+  },
+  {
+    "name": "WhatsApp",
+    "url": "https://web.whatsapp.com",
+    "photo": "https://www.google.com/s2/favicons?domain=whatsapp.com"
+  },
+  {
+    "name": "Wikipedia",
+    "url": "https://es.wikipedia.org",
+    "photo": "https://www.google.com/s2/favicons?domain=wikipedia.org"
+  }
+]

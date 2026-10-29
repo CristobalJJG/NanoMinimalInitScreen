@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Inicio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="search-container">
+    <form id="searchForm" onsubmit="handleSearch()">
+      <div class="search-box">
+        <span class="logo">G</span>
+        <input type="search" id="searchQuery" placeholder="Buscar en la web..." required autofocus />
+      </div>
+    </form>
+  </div>
+
+  <div class="grid-container" id="linksGrid">
+    <p>Cargando sitios...</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
